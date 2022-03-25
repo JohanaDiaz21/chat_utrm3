@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Contactos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-list-header> Conversaciones recientes </ion-list-header>
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large"></ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <div *ngFor="let item of onlineUsers">
+      <div *ngIf="item.id != userId">
+        <ion-item (click)="navigateToChat(item.id)">
+          <ion-avatar slot="start">
+            <img src="{{item.avatar}}" />
+          </ion-avatar>
+          <ion-label>
+            <h2>{{item.username}}</h2>
+            <!--      <h3>I'm a big deal</h3>-->
+            <!--      <p>Listen, I've had a pretty messed up day...</p>-->
+          </ion-label>
+        </ion-item>
+      </div>
+    </div>
+  </ion-list>
+</ion-content>
