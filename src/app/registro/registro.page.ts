@@ -27,10 +27,10 @@ export class RegistroPage implements OnInit {
     const query: any = await this.userService.createUser(this.user);
     console.log(query);
     if(query && query.ok) {
-      const alert = await this.generalService.presentAlert('Success', '', 'User created successfully');
-      this.redirect('/');
+      const alert = await this.generalService.presentAlert('Success', '', 'Usuario creado');
+      this.redirect('/home');
     } else {
-      await this.generalService.presentAlert('Error', '', 'User not created');
+      await this.generalService.presentAlert('Error', '', 'Usuario no creado');
     }
   }
 }
