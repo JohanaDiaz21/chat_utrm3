@@ -21,15 +21,15 @@ export class ListadeusuariosPage implements OnInit {
   ngOnInit() {
     this.userId = this.service.getId();
     console.log('user in tab', this.userId);
-    this.socketService.getOnlineUsers().subscribe((users) => {
-      console.log('Usuarios conectados', users);
-      if (users) {
-        this.onlineUsers = users;
+    this.socketService.getOnlineUsers().subscribe((user) => {
+      console.log('Usuarios conectados', user);
+      if (user) {
+        this.onlineUsers = user;
       }
     });
   }
   async navigateToChat(id) {
-    await this.router.navigate(['/home/chat'], {queryParams: {userId: id}});
+    await this.router.navigate(['/chat'], {queryParams: {userId: id}});
 
   }
 

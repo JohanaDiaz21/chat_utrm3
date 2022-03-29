@@ -45,7 +45,7 @@ export class LoginPage implements OnInit {
       if(query && query.ok){
         localStorage.setItem('userId', query.user.id);
         this.socketService.login(query.user);
-        await this.router.navigate(['/home'], { queryParams: query.user });
+        await this.router.navigate(['/listadeusuarios'], { queryParams: query.user });
       } else {
         await this.generalService.presentAlert('Error', '', 'Usuario no encontrado');
       }
@@ -54,4 +54,3 @@ export class LoginPage implements OnInit {
     }
   }
 }
-

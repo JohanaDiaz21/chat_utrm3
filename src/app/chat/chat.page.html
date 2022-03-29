@@ -1,18 +1,12 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Chat
+      Chat room
+      <button [routerLink]="['/home']"class="btn">salir</button>
     </ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-buttons slot="end">
-  <ion-button>
-    <ion-icon   color="light" slot="icon-only" name="person-circle"></ion-icon>
-  </ion-button>
-  <ion-button>
-    <ion-icon  color="light" slot="icon-only" name="search"></ion-icon>
-  </ion-button>
-</ion-buttons>
+
 <ion-content [fullscreen]="true">
 
   <div class="container">
@@ -40,7 +34,7 @@
 <ion-footer no-border>
   <form>
     <div class="input-wrap">
-      <textarea #messageInput class="textarea-style" placeholder="Escribe tu mensaje" name="chatMessage" [(ngModel)]="chatMessage" (keyup.enter)="sendMessage()"></textarea>
+      <textarea #messageInput class="textarea-style" placeholder="Escribe tu mensaje!" name="chatMessage" [(ngModel)]="chatMessage" (keyup.enter)="sendMessage()"></textarea>
       <ion-button class="button-message" ion-button clear icon-only item-right (click)="sendMessage()">
         <ion-icon name="send-outline"></ion-icon>
       </ion-button>

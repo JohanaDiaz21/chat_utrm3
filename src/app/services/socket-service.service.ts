@@ -12,7 +12,7 @@ export class SocketServiceService {
   public onlineUsers$: BehaviorSubject<any> = new BehaviorSubject('');
   public getNewMessage$: BehaviorSubject<any> = new BehaviorSubject('');
 
-  socket = io(environment.apiUrl, {});
+  socket = io(environment.url, {});
 
   constructor() { }
 
@@ -25,8 +25,8 @@ export class SocketServiceService {
   }
 
   public getOnlineUsers() {
-    this.socket.on('new-user-online', (users) => {
-      this.onlineUsers$.next(users);
+    this.socket.on('new-user-online', (user) => {
+      this.onlineUsers$.next(user);
     });
     return this.onlineUsers$.asObservable();
   }
