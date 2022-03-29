@@ -47,10 +47,10 @@ export class LoginPage implements OnInit {
         this.socketService.login(query.user);
         await this.router.navigate(['/home'], { queryParams: query.user });
       } else {
-        await this.generalService.presentAlert('Error', '', 'User not found');
+        await this.generalService.presentAlert('Error', '', 'Usuario no encontrado');
       }
     } else {
-      await this.generalService.presentAlert('Error', '', 'User not found');
+      await this.generalService.presentAlert('Error', '', 'Usuario no encontrado');
     }
   }
 }

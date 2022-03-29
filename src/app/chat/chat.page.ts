@@ -2,7 +2,6 @@ import { Component , OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {  UserService } from '../services/user.service';
 import {SocketServiceService} from '../services/socket-service.service';
-import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-chat',
@@ -41,7 +40,7 @@ export class ChatPage implements OnInit {
       console.log(query);
     }
     this.socketService.getNewMessage().subscribe((message) => {
-      console.log('new message received', message);
+      console.log('Mensaje recibido', message);
       if(message) {
         this.messageList.push(message);
       }
@@ -69,11 +68,6 @@ export class ChatPage implements OnInit {
     }
 
     console.log(query);
-
-    // this.messageList.push({
-    //   me: { avatarURL: 'https://ionicframework.com/docs/demos/api/list/avatar-han.png', name: 'Yo' }, text: this.chatMessage
-    // });
-
     this.chatMessage = '';
     return true;
   }

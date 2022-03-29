@@ -6,7 +6,7 @@ import { UserServiceGuard } from './auth_guards/user-service.guard';
 const routes: Routes = [
   {
 
-    path: 'login',
+    path: '',
     loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule )
   },
   {
@@ -22,20 +22,24 @@ const routes: Routes = [
     loadChildren: () => import('./forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
   },
   {
-    path: 'registro',
-    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'chat',
+    loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule)
   },
 
-  {
-    path: '',
-    canActivate: [UserServiceGuard],
-    children: [
-      {
-        path: 'home',
-        loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-      }
-    ]
-  }
+ // {
+  //path: '',
+  //  canActivate: [UserServiceGuard],
+  // children: [
+  //    {
+        //     path: 'login',
+//      loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  //    }
+//  ]
+  // }
 ];
 @NgModule({
   imports: [
