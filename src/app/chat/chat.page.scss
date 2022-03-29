@@ -1,60 +1,63 @@
-.container {
-    border: 2px solid #ff5722;
-    background-color: #ff5722;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px 0;
+
+ion-toolbar{
+  --padding-top: 1%;
+  --padding-bottom: 1%;
 }
 
+.titleicon {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  text-align:center;
+}
+.message {
+  background-color: #fff;
+  border: 1px solid #e5e5ea;
+  border-radius: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  font-family: "SanFrancisco";
+  font-size: 1.25rem;
+  margin: 0 auto 1rem;
+  max-width: 600px;
+  padding: 0.5rem 1.5rem;
 
-/* Darker chat container */
-
-.darker {
-    border-color: #ff5722;
-    background-color: #f86b40;
 }
 
-
-/* Clear floats */
-
-.container::after {
-    content: "";
-    clear: both;
-    display: table;
+.other-message{
+  background-color: #6A5ACD		;
+  border-radius: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  font-family: "SanFrancisco";
+  font-size: 1.25rem;
+  margin: 0 auto 1rem;
+  max-width: 600px;
+  padding: 0.5rem 1.5rem;
+}
+.my-message{
+  background-color: #90EE90;
+  border-radius: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  font-family: "SanFrancisco";
+  font-size: 1.25rem;
+  margin: 0 auto 1rem;
+  max-width: 600px;
+  padding: 0.5rem 1.5rem;
 }
 
+.message-input {
+  width: 100%;
+  border-radius: 10px;
+  background: fff;
+  resize: none;
+  padding-left: 10px;
+  padding-right: 10px;
 
-/* Style images */
-
-.container img {
-    float: left;
-    max-width: 60px;
-    width: 100%;
-    margin-right: 20px;
-    border-radius: 50%;
 }
-
-
-/* Style the right image */
-
-.container img.right {
-    float: right;
-    margin-left: 20px;
-    margin-right: 0;
-}
-
-
-/* Style time text */
-
-.time-right {
-    float: right;
-    color: rgb(5, 5, 5);
-}
-
-
-/* Style time text */
-
-.time-left {
-    float: left;
-    color: rgb(5, 5, 5);
+.msg-btn {
+  --padding-start: 0.5em;
+  --padding-end: 0.5em;
 }

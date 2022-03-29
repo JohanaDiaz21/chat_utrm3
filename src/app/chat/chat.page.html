@@ -1,43 +1,49 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Chat room
+      Chat
       <button [routerLink]="['/home']"class="btn">salir</button>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+  <ion-content>
 
-  <div class="container">
-    <div class="imessage">
-      <div *ngFor="let msg of messageList" >
-        <div *ngIf="msg.id === myUserId else meText">
-          <p class="from-them">
-            {{msg.msg}}
-          </p>
-        </div>
+    <ion-grid>
+
+      <ion-row *ngFor="let item of messageList">
+
+        <ion-col offset="2" size="5" class="message other-message" *ngIf="item.user_id != myUserId else meText">
+          <span>{{item.msg}}</span>
+          <div class="time" ><br />{{item.created_at}}</div>
+        </ion-col>
 
         <ng-template #meText>
-          <div class="imessage-left">
-            <p class="from-me">
-              {{msg.msg}}
-            </p>
-          </div>
-
+          <ion-col offset="6" size="4" class="message my-message">
+            <span style="text-align: end"
+            >  {{item.msg}}</span
+            >
+          </ion-col>
         </ng-template>
-      </div>
-    </div>
-  </div>
-</ion-content>
 
-<ion-footer no-border>
-  <form>
-    <div class="input-wrap">
-      <textarea #messageInput class="textarea-style" placeholder="Escribe tu mensaje!" name="chatMessage" [(ngModel)]="chatMessage" (keyup.enter)="sendMessage()"></textarea>
-      <ion-button class="button-message" ion-button clear icon-only item-right (click)="sendMessage()">
-        <ion-icon name="send-outline"></ion-icon>
-      </ion-button>
-    </div>
-  </form>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+
+
+
+<ion-footer>
+  <ion-toolbar color="black">
+    <ion-row align-items-center no-padding>
+      <ion-col size="10">
+        <textarea  class="message-input" name="chatMessage"placeholder="Escribe tu mensaje!"  [(ngModel)]="chatMessage"> </textarea>
+      </ion-col>
+
+      <ion-col size="2">
+        <ion-button expand="block" fill="clear" color="primary" class="msg=btn" (click)="sendMessage()">
+          <ion-icon name="send" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
 </ion-footer>
